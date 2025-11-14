@@ -1,0 +1,81 @@
+{
+  "schema": "https://github.com/awslabs/frontend-discovery/blob/main/schema/v1-pre.json",
+  "microFrontends": {
+    "HomeMFE": [
+      {
+        "url": "http://localhost:2001/remoteEntry.js",
+        "metadata": {
+          "integrity": "sha256-initial",
+          "version": "1.0.0"
+        },
+        "extras": {
+          "name": "HomeMFE",
+          "alias": "HomeMFE",
+          "exposed": "MFE",
+          "route": "/"
+        }
+      }
+    ],
+    "CatalogueMFE": [
+      {
+        "url": "http://localhost:2002/remoteEntry.js",
+        "metadata": {
+          "integrity": "sha256-initial",
+          "version": "1.0.0"
+        },
+        "extras": {
+          "name": "CatalogueMFE",
+          "alias": "CatalogueMFE",
+          "exposed": "MFE",
+          "route": "/catalogue",
+          "routes": [
+            "/catalogue/:productId"
+          ]
+        }
+      }
+    ],
+    "MyAccountMFE": [
+      {
+        "url": "http://localhost:2003/remoteEntry.js",
+        "metadata": {
+          "integrity": "sha256-initial",
+          "version": "1.0.0"
+        },
+        "extras": {
+          "name": "MyAccountMFE",
+          "alias": "MyAccountMFE",
+          "exposed": "MFE",
+          "route": "/my-account/*"
+        }
+      }
+    ],
+    "UserDetailsMFE": [
+      {
+        "url": "http://localhost:2004/remoteEntry.js",
+        "metadata": {
+          "integrity": "sha256-initial",
+          "version": "1.0.0"
+        },
+        "extras": {
+          "name": "UserDetailsMFE",
+          "alias": "UserDetailsMFE",
+          "exposed": "MFE"
+        }
+      }
+    ],
+    "UserPaymentMethodsMFE": [
+      {
+        "url": "http://localhost:2005/remoteEntry.js",
+        "metadata": {
+          "integrity": "sha256-initial",
+          "version": "1.0.0"
+        },
+        "extras": {
+          "name": "UserPaymentMethodsMFE",
+          "alias": "UserPaymentMethodsMFE",
+          "exposed": "MFE"
+        }
+      }
+    ]
+  }
+}

@@ -1,29 +1,29 @@
-import { EventEmitter } from 'tseep';
+import { EventEmitter } from "tseep";
 
 class EventEmitterSingleton {
-    constructor() {
-        if (EventEmitterSingleton.instance) {
-            return EventEmitterSingleton.instance;
-        }
-        
-        this.emitter = new EventEmitter();
-        EventEmitterSingleton.instance = this;
+  constructor() {
+    if (EventEmitterSingleton.instance) {
+      return EventEmitterSingleton.instance;
     }
 
-    emit(event, data) {
-        this.emitter.emit(event, data);
-    }
+    this.emitter = new EventEmitter();
+    EventEmitterSingleton.instance = this;
+  }
 
-    on(event, callback) {
-        this.emitter.on(event, callback);
-    }
+  emit(event, data) {
+    this.emitter.emit(event, data);
+  }
 
-    off(event, callback) {
-        this.emitter.off(event, callback);
-    }
+  on(event, callback) {
+    this.emitter.on(event, callback);
+  }
+
+  off(event, callback) {
+    this.emitter.off(event, callback);
+  }
 }
 
 const emitter = new EventEmitterSingleton();
 Object.freeze(emitter);
 
-export default emitter; 
+export default emitter;

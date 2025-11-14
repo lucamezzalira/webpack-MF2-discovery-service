@@ -1,10 +1,9 @@
 const originalFetch = window.fetch;
 
 window.fetch = async (input, init = {}) => {
-
-  const jwtToken = 'your-jwt-token-here';
+  const jwtToken = "your-jwt-token-here";
   const headers = new Headers(init.headers || {});
-  headers.append('Authorization', `Bearer ${jwtToken}`);
+  headers.append("Authorization", `Bearer ${jwtToken}`);
 
   const modifiedInit = {
     ...init,
@@ -12,4 +11,4 @@ window.fetch = async (input, init = {}) => {
   };
 
   return originalFetch(input, modifiedInit);
-}; 
+};

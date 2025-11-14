@@ -1,0 +1,12 @@
+{
+  "name": "webpack-mf2-discovery-service",
+  "version": "1.0.0",
+  "description": "Root package for managing all micro-frontends",
+  "private": true,
+  "scripts": {
+    "start": "pnpm run --recursive --parallel start",
+    "build": "pnpm run --recursive build",
+    "build:parallel": "pnpm run --recursive --parallel build"
+  }
+}
+

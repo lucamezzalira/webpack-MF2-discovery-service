@@ -1,0 +1,8 @@
+packages:
+  - 'AppShell'
+  - 'CatalogueMFE'
+  - 'HomeMFE'
+  - 'MyAccount'
+  - 'UserDetails'
+  - 'UserPaymentMethods'
+

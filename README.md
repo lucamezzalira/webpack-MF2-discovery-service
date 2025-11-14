@@ -2,6 +2,69 @@
 
 This project demonstrates a micro-frontend architecture using Module Federation, React, and various patterns for state management and component communication.
 
+## Getting Started
+
+### Prerequisites
+
+This project uses [pnpm](https://pnpm.io/) for package management and workspace support. Install pnpm if you haven't already:
+
+```bash
+npm install -g pnpm
+```
+
+### Installation
+
+Install dependencies for all micro-frontends:
+
+```bash
+pnpm install
+```
+
+### Running All Services
+
+Start all micro-frontends in parallel:
+
+```bash
+pnpm start
+```
+
+This will start all 6 services in parallel:
+- **AppShell** (port 2000) - Main application shell
+- **CatalogueMFE** (port 2002) - Product catalogue
+- **HomeMFE** (port 2001) - Homepage
+- **MyAccount** (port 2003) - User account management
+- **UserDetails** (port 2004) - User details
+- **UserPaymentMethods** (port 2005) - Payment methods
+
+Press `Ctrl+C` to stop all services gracefully.
+
+### Running Individual Services
+
+Run a specific service:
+
+```bash
+pnpm run start --filter ./AppShell
+pnpm run start --filter ./CatalogueMFE
+pnpm run start --filter ./HomeMFE
+pnpm run start --filter ./MyAccount
+pnpm run start --filter ./UserDetails
+pnpm run start --filter ./UserPaymentMethods
+```
+
+### Building
+
+Build all services sequentially:
+
+```bash
+pnpm run build
+```
+
+Build all services in parallel:
+
+```bash
+pnpm run build:parallel
+```
+
 ## Key Learnings
 
 ### 1. Module Federation Setup

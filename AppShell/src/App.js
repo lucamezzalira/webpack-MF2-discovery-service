@@ -15,10 +15,24 @@ const System = ({ request, mfInstance }) => {
     return <h2>No system specified</h2>;
   }
   
+  if (!mfInstance) {
+    return <div>Module Federation instance not initialized</div>;
+  }
+  
   const MFE = React.lazy(() =>
-    mfInstance.loadRemote(request).then((module) => ({
-      default: module.default,
-    }))
+    mfInstance.loadRemote(request)
+      .then((module) => {
+        if (!module) {
+          throw new Error(`Module is undefined for request: ${request}`);
+        }
+        return {
+          default: module.default || module,
+        };
+      })
+      .catch((error) => {
+        console.error(`Failed to load remote: ${request}`, error);
+        throw error;
+      })
   );
 
   return (

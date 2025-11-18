@@ -24,7 +24,7 @@ function App({ onNavigate, emitter }) {
       >
         React v{React.version}
       </div>
-      <button
+      {/* <button
         onClick={() => setCount((prevCount) => prevCount + 1)}
         style={{ marginLeft: "0.5rem" }}
       >
@@ -36,7 +36,7 @@ function App({ onNavigate, emitter }) {
       >
         Decrement react 17
       </button>
-      <span style={{ marginLeft: "1rem" }}>Count react17: {count}</span>
+      <span style={{ marginLeft: "1rem" }}>Count react17: {count}</span> */}
       <div
         className="hero"
         style={{

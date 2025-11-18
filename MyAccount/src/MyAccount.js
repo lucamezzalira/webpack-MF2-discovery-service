@@ -48,6 +48,7 @@ function MyAccount({ emitter }) {
       await mfInstance.registerRemotes(
         userMfes.map((mfe) => ({
           name: mfe.extras.name,
+          alias: mfe.extras.alias,
           entry: mfe.url,
         }))
       );

@@ -22,14 +22,20 @@ pnpm install
 
 ### Running All Services
 
-Start all micro-frontends in parallel:
+In one terminal, start the discovery service that serves `frontend-discovery.json`:
+
+```bash
+pnpm run start:discovery
+```
+
+In another terminal, start all micro-frontends in parallel:
 
 ```bash
 pnpm start
 ```
 
 This will start all 6 services in parallel:
-- **AppShell** (port 2000) - Main application shell
+- **AppShell** (port 2000) - Main application shell (open this in the browser)
 - **CatalogueMFE** (port 2002) - Product catalogue
 - **HomeMFE** (port 2001) - Homepage
 - **MyAccount** (port 2003) - User account management

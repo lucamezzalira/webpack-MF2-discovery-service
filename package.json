@@ -5,8 +5,12 @@
   "private": true,
   "scripts": {
     "start": "pnpm run --recursive --parallel start",
+    "start:discovery": "serve -l 8080 --cors .",
     "build": "pnpm run --recursive build",
     "build:parallel": "pnpm run --recursive --parallel build"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
   }
 }
 

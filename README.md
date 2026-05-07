@@ -49,12 +49,12 @@ Press `Ctrl+C` to stop all services gracefully.
 Run a specific service:
 
 ```bash
-pnpm run start --filter ./AppShell
-pnpm run start --filter ./CatalogueMFE
-pnpm run start --filter ./HomeMFE
-pnpm run start --filter ./MyAccount
-pnpm run start --filter ./UserDetails
-pnpm run start --filter ./UserPaymentMethods
+pnpm --filter ./AppShell run start
+pnpm --filter ./CatalogueMFE run start
+pnpm --filter ./HomeMFE run start
+pnpm --filter ./MyAccount run start
+pnpm --filter ./UserDetails run start
+pnpm --filter ./UserPaymentMethods run start
 ```
 
 ### Building

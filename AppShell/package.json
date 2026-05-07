@@ -28,7 +28,7 @@
         "@babel/plugin-transform-runtime": "^7.26.9",
         "@babel/preset-env": "^7.26.9",
         "@babel/preset-react": "^7.26.3",
-        "@module-federation/enhanced": "^0.18.1",
+        "@module-federation/enhanced": "^2.4.0",
         "babel-loader": "^9.2.1",
         "copy-webpack-plugin": "^13.0.1",
         "css-loader": "^7.1.2",

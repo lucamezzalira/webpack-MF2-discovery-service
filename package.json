@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Root package for managing all micro-frontends",
   "private": true,
+  "packageManager": "pnpm@11.0.8",
   "scripts": {
     "start": "pnpm run --recursive --parallel start",
     "start:discovery": "serve -l 8080 --cors .",
@@ -13,4 +14,3 @@
     "serve": "^14.2.4"
   }
 }
-

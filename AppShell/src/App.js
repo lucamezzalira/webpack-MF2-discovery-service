@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { getInstance } from "@module-federation/runtime-tools";
+import { getInstance } from "@module-federation/enhanced/runtime";
 
 import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import Header from "./Header";

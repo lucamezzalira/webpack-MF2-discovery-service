@@ -176,12 +176,16 @@ pnpm run build:parallel
   emitter.on('notification', this.handleNotification);
   ```
 
-- **Service Initialization**: Ensure services are properly initialized before use:
+- **Service Initialization**: Use the federation instance created by the webpack plugin, then register remotes from discovery:
   ```javascript
   // In AppShell
-  const emitter = new EventEmitter();
-  await init({ name: 'shell' });
+  import { getInstance } from '@module-federation/enhanced/runtime';
+
+  const instance = getInstance();
+  await instance.registerRemotes(remotes); // remotes from frontend-discovery.json (remoteEntry.js URLs)
   ```
+
+  Remotes stay on `remoteEntry.js` via the AWS frontend-discovery document. Do not point discovery at `mf-manifest.json`; that is a separate Module Federation protocol and is not used here. All packages pin `@module-federation/enhanced@2.7.0`.
 
 ### 4. Component Loading
 - **Suspense Usage**: Always wrap lazy-loaded MFEs with Suspense to handle loading states:

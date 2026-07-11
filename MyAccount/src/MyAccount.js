@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useCallback, Suspense } from "react";
-import { getInstance } from "@module-federation/runtime-tools";
+import { getInstance } from "@module-federation/enhanced/runtime";
 
-// Get the instance once at module level
-const mfInstance = getInstance();
-
-const System = ({ request, emitter }) => {
+const System = ({ request, emitter, mfInstance }) => {
   if (!request) return null;
+  if (!mfInstance) {
+    return <div style={{ padding: "20px", background: "#eee" }}>Loading MFE...</div>;
+  }
 
   const MFE = React.lazy(() => {
     return mfInstance
@@ -32,11 +32,18 @@ const System = ({ request, emitter }) => {
 
 function MyAccount({ emitter }) {
   const [mfeRequests, setMfeRequests] = useState([]);
+  const [mfInstance, setMfInstance] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   const loadMfes = useCallback(async () => {
     try {
+      const instance = getInstance();
+      if (!instance) {
+        throw new Error("Module Federation instance is not available");
+      }
+      setMfInstance(instance);
+
       const response = await fetch("http://localhost:8080/frontend-discovery.json");
       const data = await response.json();
 
@@ -45,12 +52,13 @@ function MyAccount({ emitter }) {
         data.microFrontends.UserPaymentMethodsMFE[0],
       ];
 
-      await mfInstance.registerRemotes(
+      await instance.registerRemotes(
         userMfes.map((mfe) => ({
           name: mfe.extras.name,
           alias: mfe.extras.alias,
           entry: mfe.url,
-        }))
+        })),
+        { force: true }
       );
 
       const requests = userMfes.map(
@@ -88,7 +96,12 @@ function MyAccount({ emitter }) {
         }}
       >
         {mfeRequests.map((request) => (
-          <System key={request} request={request} emitter={emitter} />
+          <System
+            key={request}
+            request={request}
+            emitter={emitter}
+            mfInstance={mfInstance}
+          />
         ))}
       </div>
     </div>

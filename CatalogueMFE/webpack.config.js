@@ -43,6 +43,7 @@ module.exports = {
         new ModuleFederationPlugin({
             name: 'CatalogueMFE',
             filename: 'remoteEntry.js',
+            manifest: false,
             exposes: {
                 './MFE': './src/App'
             },

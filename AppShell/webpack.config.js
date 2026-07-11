@@ -10,6 +10,7 @@ module.exports = {
       directory: path.join(__dirname, "dist"),
     },
     port: 2000,
+    historyApiFallback: true,
   },
   output: {
     publicPath: "auto",
@@ -45,6 +46,7 @@ module.exports = {
     new ModuleFederationPlugin({
       name: "shell",
       filename: "remoteEntry.js",
+      manifest: false,
       shared: {
         "react-router-dom": {
           singleton: true,

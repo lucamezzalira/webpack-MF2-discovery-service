@@ -37,6 +37,7 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'UserDetailsMFE',
       filename: 'remoteEntry.js',
+      manifest: false,
       exposes: {
         './MFE': './src/UserDetails'
       },

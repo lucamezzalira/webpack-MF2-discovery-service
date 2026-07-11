@@ -46,6 +46,7 @@ module.exports = {
     new ModuleFederationPlugin({
       name: "HomeMFE",
       filename: "remoteEntry.js",
+      manifest: false,
       exposes: {
         "./MFE": "./src/AppWrapper",
       },

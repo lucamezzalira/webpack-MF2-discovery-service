@@ -40,6 +40,7 @@ module.exports = {
     new ModuleFederationPlugin({
       name: "MyAccountMFE",
       filename: "remoteEntry.js",
+      manifest: false,
       exposes: {
         "./MFE": "./src/MyAccount",
       },
